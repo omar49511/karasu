@@ -1,18 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "./Navbar.module.css";
 import { Search, Notifications, ArrowDropDown} from '@mui/icons-material';
+import { useState, useEffect } from 'react';
 
 
 const Navbar = () => {
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.pageYOffset === 0 ? false : true);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className={styles.Navbar}>
+    <div className={isScrolled ? `${styles.navbar} ${styles.scrolled}` : `${styles.navbar}`}>
       <div className={styles.container}>
         <div className={styles.left}>
-          {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png" alt="" /> */}
-          {/* <img
+          <img
             src="https://user-images.githubusercontent.com/72781778/175261795-41541f92-357c-4959-a9f4-a14b10ebc994.png"
             alt=""
-          /> */}
+          />
           <span>HomePage</span>
           <span>Series</span>
           <span>Movies</span>

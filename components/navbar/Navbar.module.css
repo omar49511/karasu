@@ -1,14 +1,18 @@
-.Navbar {
+.navbar {
     width: 100%;
-    color: black;
-    font-size: var(--lg-font);
+    color: white;
+    font-size: 14px;
     position: fixed;
     top: 0;
     z-index: 999;
-    background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3) 50%);
+    background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.3) 50%);
 }
 
-.container {
+.navbar.scrolled {
+    background-color: var(--main-color);
+}
+
+.navbar .container {
     padding: 0px 50px;
     display: flex;
     align-items: center;
@@ -16,32 +20,32 @@
     height: 70px;
 }
 
-.container .left {
+.navbar .container .left {
     display: flex;
     align-items: center;
 }
 
-.left img {
+.navbar .container .left img {
     height: 25px;
     margin-right: 40px;
 }
 
-.left span {
-    margin-right: 15px;
+.navbar .container .left span {
+    margin-right: 20px;
     cursor: pointer;
 }
 
-.container .right {
+.navbar .container .right {
     display: flex;
     align-items: center;
 }
 
-.right .icon {
+.navbar .container .right .icon {
     margin: 0px 15px;
     cursor: pointer;
 }
 
-.right img {
+.navbar .container .right img {
     width: 30px;
     height: 30px;
     border-radius: 30px;
@@ -49,20 +53,19 @@
     cursor: pointer;
 }
 
-.right .profile .options {
+.navbar .container .right .profile .options {
     display: none;
-    background-color: var(--body-color);
+    background-color: var(--main-color);
     border-radius: 5px;
 }
 
-.right .profile span {
+.navbar .container .right .profile span {
     padding: 10px;
     cursor: pointer;
 }
 
-.right .profile .options:hover {
+.navbar .container .right .profile:hover .options {
     display: flex;
     flex-direction: column;
     position: absolute;
 }
-
